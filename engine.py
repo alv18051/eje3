@@ -1,17 +1,14 @@
 #Programa principal
-
+import random
+from turtle import width
 from gl import *
+from obj import *
+width = 1000  #alto de la pantalla
+height = 1000 #ancho de la pantalla
+rende = Renderer(height,width)
 
-rende = Renderer(1024,512)
 
-rende.glClearColor(1,0,0)
-rende.glColor(1,1,0)
+rende.glLoadModel('mod2.obj',translate=V3(width/2,height/2,0),scale=V3(10,10,10))
 
-rende.glClear()
 
-rende.glPixel(50,75)
-
-for i in range(300):
-    rende.glPixel(i,i)
-
-rende.glFinish("salida.bmp")
+rende.glFinish("./salida.bmp")
